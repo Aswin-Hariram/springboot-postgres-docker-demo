@@ -5,9 +5,9 @@ services:
     image: postgres:14
     container_name: postgres_db
     environment:
-      POSTGRES_USER: username
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: databasename
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root123
+      POSTGRES_DB: demodb
     ports:
       - "5432:5432"
     volumes:
@@ -17,9 +17,9 @@ services:
     image: spring-boot-app  # Use the name of the locally built Docker image
     container_name: spring_boot_app
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/databasename
-      SPRING_DATASOURCE_USERNAME: usename
-      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/demodb
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root123
     ports:
       - "8080:8080"
     depends_on:
